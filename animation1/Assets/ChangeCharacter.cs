@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class ChangeCharacter : MonoBehaviour
 {
-    public int charIndex = 0;
-    private int currCharIndex;
+    private int currCharIndex = 0;
     public GameObject[] characters;
 
     private void Start()
     {
-        SetCurrentCharacter(GetActiveCharacter());
+        SetCurrentCharacter(currCharIndex);
     }
 
     private void Update()
     {
-        if(charIndex > 2)
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            charIndex = 0;
+            currCharIndex = 0;
+            SetCurrentCharacter(currCharIndex);
+        }        
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currCharIndex = 1;
+            SetCurrentCharacter(currCharIndex);
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            charIndex++;
-            SetCurrentCharacter(GetActiveCharacter());
+            currCharIndex = 2;
+            SetCurrentCharacter(currCharIndex);
         }
     }
 
-    private int GetActiveCharacter()
-    {
-        currCharIndex = charIndex;
-        return currCharIndex;
-    }
 
     private void SetCurrentCharacter(int currentCharIndex)
     {
