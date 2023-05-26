@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeCharacter : MonoBehaviour
 {
-    private int currCharIndex = 0;
+    public int currCharIndex = 0;
     public GameObject[] characters;
 
     private void Start()
